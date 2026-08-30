@@ -1,0 +1,31 @@
+{
+  "domain": "fluval",
+  "name": "Fluval Connect Light",
+  "bluetooth": [
+    {
+      "local_name": "Roma*"
+    },
+    {
+      "local_name": "Shaker*"
+    },
+    {
+      "local_name": "PlantPro*"
+    }
+  ],
+  "codeowners": [
+    "@LordOfPolls"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth_adapters"
+  ],
+  "documentation": "https://github.com/LordOfPolls/hass-fluval-connect",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/LordOfPolls/hass-fluval-connect/issues",
+  "requirements": [
+    "bleak-retry-connector>=3.5.0",
+    "cbor2>=5.6.0"
+  ],
+  "version": "0.1.0"
+}

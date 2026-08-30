@@ -1,0 +1,119 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "description": "Choose the Fluval light to add.",
+        "data": {
+          "address": "Device"
+        }
+      },
+      "confirm": {
+        "description": "Set up {name}?"
+      }
+    },
+    "abort": {
+      "already_configured": "This light is already set up.",
+      "no_devices_found": "No Fluval light found. Make sure it is in range and the Fluval app is not connected to it.",
+      "not_supported": "This Bluetooth device is not a Fluval Connect light."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "The light allows one Bluetooth connection at a time. Holding it open keeps commands fast, but stops the Fluval phone app from connecting.",
+        "data": {
+          "keep_connected": "Hold the Bluetooth connection open",
+          "poll_interval": "Refresh every"
+        },
+        "data_description": {
+          "keep_connected": "Turn this off to share the light with the phone app. Commands then get slower, because each one has to connect first.",
+          "poll_interval": "How often to read the light's state. Defaults to 60 seconds while the connection is held, 300 when it is not, since every refresh on a shared link costs a fresh connect."
+        }
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Mode",
+        "state": {
+          "manual": "Manual",
+          "auto": "Auto",
+          "pro": "Pro"
+        }
+      }
+    },
+    "sensor": {
+      "next_on": {
+        "name": "Next on"
+      },
+      "next_off": {
+        "name": "Next off"
+      },
+      "firmware": {
+        "name": "Firmware"
+      }
+    },
+    "button": {
+      "sync_clock": {
+        "name": "Sync clock"
+      },
+      "identify": {
+        "name": "Identify"
+      }
+    }
+  },
+  "services": {
+    "set_simple_schedule": {
+      "name": "Set simple schedule",
+      "description": "Write a Pro schedule for an ordinary day: dark, ramp up to the given levels, hold, ramp back down. Replaces the existing Pro schedule.",
+      "fields": {
+        "on_at": {
+          "name": "Lights on",
+          "description": "When the light starts coming up."
+        },
+        "off_at": {
+          "name": "Lights off",
+          "description": "When the light finishes going down."
+        },
+        "color": {
+          "name": "Colour",
+          "description": "The red/green/blue mix, picked the same way as on the light itself."
+        },
+        "white": {
+          "name": "White",
+          "description": "Level of the dedicated white channel."
+        },
+        "brightness": {
+          "name": "Brightness",
+          "description": "Scales all four channels."
+        },
+        "ramp_minutes": {
+          "name": "Ramp",
+          "description": "How long the sunrise and sunset fades take."
+        }
+      }
+    },
+    "set_pro_schedule": {
+      "name": "Set Pro schedule",
+      "description": "Replace the light's Pro schedule. The light ramps between consecutive points, so each one is a breakpoint rather than a scene.",
+      "fields": {
+        "points": {
+          "name": "Points",
+          "description": "One row per breakpoint: a time and the mix to reach at it. In YAML you can give \"levels\" instead of a colour for exact channel percentages."
+        }
+      }
+    },
+    "preview": {
+      "name": "Preview",
+      "description": "Replay the whole Auto or Pro day compressed into the given number of seconds.",
+      "fields": {
+        "seconds": {
+          "name": "Seconds",
+          "description": "How long the replay should take."
+        }
+      }
+    }
+  }
+}
