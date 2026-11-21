@@ -15,7 +15,7 @@ import cbor2
 SERVICE = "0000fff0-0000-1000-8000-00805f9b34fb"
 CHAR_NOTIFY = "0000fff1-0000-1000-8000-00805f9b34fb"
 CHAR_WRITE = "0000fff2-0000-1000-8000-00805f9b34fb"
-NAME_PREFIX = ("Roma", "Shaker", "PlantPro")
+NAME_PREFIX = ("Roma", "Shaker", "PlantPro", "Siena")
 
 READ_ALL = b"\xd0\xff"
 HDR_CMD = 0xD1
